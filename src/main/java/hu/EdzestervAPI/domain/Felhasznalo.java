@@ -1,10 +1,10 @@
 package hu.EdzestervAPI.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Felhasznalo {
@@ -17,6 +17,9 @@ public class Felhasznalo {
     private Date szuldat;
     private int magassag;
     private String megjegyzes;
+    @OneToMany(mappedBy = "felhasznalo")
+    @JsonIgnore
+    private List<Cel> celok;
 
     public Felhasznalo(int id, String email, String nev, Date szuldat,  int magassag, String megjegyzes) {
         this.id = id;

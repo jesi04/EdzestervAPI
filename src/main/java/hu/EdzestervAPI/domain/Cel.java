@@ -1,9 +1,6 @@
 package hu.EdzestervAPI.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,14 +9,18 @@ public class Cel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int felhasznaloid;
+    @ManyToOne
+    private Felhasznalo felhasznalo;
     private int elerendoSuly;
     private Date kezdes;
     private Date vege;
     private String megjegyzes;
 
-    public Cel(int id, int felhasznaloid, int elerendoSuly, Date kezdes, Date vege, String megjegyzes) {
+
+    public Cel(int id, int felhasznaloid, Felhasznalo felhasznalo, int elerendoSuly, Date kezdes, Date vege, String megjegyzes) {
         this.id = id;
         this.felhasznaloid = felhasznaloid;
+        this.felhasznalo = felhasznalo;
         this.elerendoSuly = elerendoSuly;
         this.kezdes = kezdes;
         this.vege = vege;

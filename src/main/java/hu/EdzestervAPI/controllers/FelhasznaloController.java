@@ -1,5 +1,6 @@
 package hu.EdzestervAPI.controllers;
 
+import hu.EdzestervAPI.domain.CelList;
 import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
 import hu.EdzestervAPI.services.FelhasznaloService;
@@ -26,5 +27,7 @@ public class FelhasznaloController {
     public Felhasznalo getFelhasznalo(@PathVariable("id") int id){
         return service.getFelhasznalo(id);
     }
+
+
 
 }

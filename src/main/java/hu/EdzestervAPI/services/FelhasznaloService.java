@@ -1,5 +1,6 @@
 package hu.EdzestervAPI.services;
 
+import hu.EdzestervAPI.domain.CelList;
 import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
 import hu.EdzestervAPI.repositories.FelhasznaloRepository;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
