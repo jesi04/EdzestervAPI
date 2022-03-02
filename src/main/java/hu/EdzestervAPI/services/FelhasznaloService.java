@@ -43,6 +43,33 @@ public class FelhasznaloService {
             if(felhasznalo.isPresent())
                 return felhasznalo.get();
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    public Felhasznalo addFelhasznalo(Felhasznalo felhasznalo){
+        Optional<Felhasznalo> optionalFelhasznalo = repository.findById(felhasznalo.getId());
+        if(!optionalFelhasznalo.isPresent()){
+            return repository.save(felhasznalo);
         }
+        throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }
+
+    public Felhasznalo updateFelhasznalo(int id, String email) {
+        Optional<Felhasznalo> optionalFelhasznalo = repository.findById(id);
+        if(optionalFelhasznalo.isPresent()){
+            Felhasznalo felhasznalo = optionalFelhasznalo.get();
+            felhasznalo.setEmail(email);
+            return repository.save(felhasznalo);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    public void deleteFelhasznalo(int id) {
+        Optional<Felhasznalo> optionalFelhasznalo = repository.findById(id);
+        if(optionalFelhasznalo.isPresent()){
+            repository.deleteById(id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

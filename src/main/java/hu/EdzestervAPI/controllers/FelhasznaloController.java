@@ -5,10 +5,9 @@ import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
 import hu.EdzestervAPI.services.FelhasznaloService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +27,21 @@ public class FelhasznaloController {
         return service.getFelhasznalo(id);
     }
 
+    @PostMapping("/felhasznalok")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Felhasznalo addFelhasznalo(@RequestBody Felhasznalo felhasznalo){
+        return service.addFelhasznalo(felhasznalo);
+    }
 
+    @PatchMapping("/felhasznalok/{id}")
+    public Felhasznalo updateFelhasznalo(@PathVariable("id") int id, @RequestBody Felhasznalo felhasznalo){
+        String email = felhasznalo.getEmail();
+        return service.updateFelhasznalo(id, email);
+    }
+
+    @DeleteMapping("/felhasznalok/{id}")
+    public void deleteFelhasznalo(@PathVariable("id") int id){
+        service.deleteFelhasznalo(id);
+    }
 
 }
