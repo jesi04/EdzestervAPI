@@ -1,8 +1,10 @@
 package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.domain.Edzesterv;
 import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.services.FelhasznaloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,15 +24,23 @@ public class FelhasznaloController {
         return service.getFelhasznalok();
     }
 
+
+
     @GetMapping("/felhasznalok/{id}")
     public Felhasznalo getFelhasznalo(@PathVariable("id") int id){
         return service.getFelhasznalo(id);
     }
 
-    @PostMapping("/felhasznalok")
+    /*@PostMapping("/felhasznalok")
     @ResponseStatus(HttpStatus.CREATED)
     public Felhasznalo addFelhasznalo(@RequestBody Felhasznalo felhasznalo){
         return service.addFelhasznalo(felhasznalo);
+    }*/
+
+    @PostMapping("/felhasznalok")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Felhasznalo addFelhasznalo(@RequestBody NewFelhasznaloRequest newFelhasznaloRequest){
+        return service.addFelhasznalo(newFelhasznaloRequest);
     }
 
     @PatchMapping("/felhasznalok/{id}")
@@ -43,5 +53,11 @@ public class FelhasznaloController {
     public void deleteFelhasznalo(@PathVariable("id") int id){
         service.deleteFelhasznalo(id);
     }
+
+    @GetMapping("/edzestervek")
+    public List<Edzesterv> getEdzestervek(){
+        return service.getEdzestervek();
+    }
+
 
 }

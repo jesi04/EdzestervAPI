@@ -1,8 +1,10 @@
 package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.domain.Edzesterv;
 import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.repositories.FelhasznaloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,12 +47,18 @@ public class FelhasznaloService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    public Felhasznalo addFelhasznalo(Felhasznalo felhasznalo){
+    /*public Felhasznalo addFelhasznalo(Felhasznalo felhasznalo){
         Optional<Felhasznalo> optionalFelhasznalo = repository.findById(felhasznalo.getId());
         if(!optionalFelhasznalo.isPresent()){
             return repository.save(felhasznalo);
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }*/
+
+    public Felhasznalo addFelhasznalo(NewFelhasznaloRequest newFelhasznaloRequest){
+        Felhasznalo felhasznalo=newFelhasznaloRequest.toFelhasznalo();
+        System.out.println(newFelhasznaloRequest);
+        return repository.save(felhasznalo);
     }
 
     public Felhasznalo updateFelhasznalo(int id, String email) {
@@ -70,6 +78,20 @@ public class FelhasznaloService {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+    }
+
+    public List<Edzesterv> getEdzestervek() {
+        List<Edzesterv> edzestervek = new ArrayList<>();
+        List<Object[]> data = repository.getEdzestervek();
+        for (Object[] object : data) {
+            int id = (Integer) object[0];
+            String nev = (String) object[1];
+            String feladatNev = (String) object[2];
+            String feladatLeiras = (String) object[3];
+            int elerendoSuly = (Integer) object[4];
+            edzestervek.add(new Edzesterv(id, nev, feladatNev, feladatLeiras, elerendoSuly));
+        }
+        return edzestervek;
     }
 
 }

@@ -17,9 +17,6 @@ public class Felhasznalo {
     private Date szuldat;
     private int magassag;
     private String megjegyzes;
-    @OneToMany(mappedBy = "felhasznalo")
-    @JsonIgnore
-    private List<Cel> celok;
 
     public Felhasznalo(int id, String email, String nev, Date szuldat,  int magassag, String megjegyzes) {
         this.id = id;

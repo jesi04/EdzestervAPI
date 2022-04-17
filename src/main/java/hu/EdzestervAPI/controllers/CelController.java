@@ -2,7 +2,6 @@ package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
-import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.services.CelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +21,7 @@ public class CelController {
 
     @GetMapping("/celok/{id}")
     public Cel getCel(@PathVariable("id") int id){
+        System.out.println("controller");
         return service.getCel(id);
     }
 
@@ -33,7 +33,8 @@ public class CelController {
 
     @PatchMapping("/celok/{id}")
     public Cel updateCel(@PathVariable("id") int id, @RequestBody Cel cel){
-        int elerendoSuly = cel.getElerendoSuly();
+        int elerendoSuly = cel.getElerendosuly();
+        System.out.println("valami1");
         return service.updateCel(id, elerendoSuly);
     }
 

@@ -4,24 +4,22 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "cel")
 public class Cel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int felhasznaloid;
-    @ManyToOne
-    private Felhasznalo felhasznalo;
-    private int elerendoSuly;
+    private int elerendosuly;
     private Date kezdes;
     private Date vege;
     private String megjegyzes;
 
 
-    public Cel(int id, int felhasznaloid, Felhasznalo felhasznalo, int elerendoSuly, Date kezdes, Date vege, String megjegyzes) {
+    public Cel(int id, int felhasznaloid, int elerendosuly, Date kezdes, Date vege, String megjegyzes) {
         this.id = id;
         this.felhasznaloid = felhasznaloid;
-        this.felhasznalo = felhasznalo;
-        this.elerendoSuly = elerendoSuly;
+        this.elerendosuly = elerendosuly;
         this.kezdes = kezdes;
         this.vege = vege;
         this.megjegyzes = megjegyzes;
@@ -46,12 +44,12 @@ public class Cel {
         this.felhasznaloid = felhasznaloid;
     }
 
-    public int getElerendoSuly() {
-        return elerendoSuly;
+    public int getElerendosuly() {
+        return elerendosuly;
     }
 
-    public void setElerendoSuly(int elerendoSuly) {
-        this.elerendoSuly = elerendoSuly;
+    public void setElerendosuly(int elerendosuly) {
+        this.elerendosuly = elerendosuly;
     }
 
     public Date getKezdes() {

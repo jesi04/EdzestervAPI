@@ -1,13 +1,14 @@
 package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.JavasoltEdzes;
 import hu.EdzestervAPI.domain.JavasoltEdzesList;
 import hu.EdzestervAPI.services.CelService;
 import hu.EdzestervAPI.services.JavasoltEdzesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +20,27 @@ public class JavasoltEdzesController {
     @GetMapping("/javasoltak")
     public List<JavasoltEdzesList> getJavasoltak(){
         return service.getJavasoltak();
+    }
+
+    @GetMapping("/javasoltak/{id}")
+    public JavasoltEdzes getJavasoltEdzes(@PathVariable("id") int id){
+        return service.getJavasoltEdzes(id);
+    }
+
+    @PostMapping("/javasoltak")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JavasoltEdzes addJavasoltEdzes(@RequestBody JavasoltEdzes javasoltEdzes){
+        return service.addJavasoltEdzes(javasoltEdzes);
+    }
+
+    @PatchMapping("/javasoltak/{id}")
+    public JavasoltEdzes updateJavasoltEdzes(@PathVariable("id") int id, @RequestBody JavasoltEdzes javasoltEdzes){
+        int idotartam = javasoltEdzes.getIdotartam();
+        return service.updateJavasoltEdzes(id, idotartam);
+    }
+
+    @DeleteMapping("/javasoltak/{id}")
+    public void deleteJavasoltEdzes(@PathVariable("id") int id){
+        service.deleteJavasoltEdzes(id);
     }
 }

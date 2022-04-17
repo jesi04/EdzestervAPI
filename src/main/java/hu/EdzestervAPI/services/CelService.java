@@ -2,7 +2,6 @@ package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
-import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.repositories.CelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,19 +29,22 @@ public class CelService {
         for (Object[] object : data) {
             int id = (Integer)object[0];
             int felhasznaloid = (Integer)object[1];
-            int elerendoSuly = (Integer)object[2];
+            int elerendosuly = (Integer)object[2];
             Date kezdes = (Date)object[3];
             Date vege = (Date)object[4];
             String megjegyzes = (String) object[5];
-            celok.add(new CelList(id, felhasznaloid, elerendoSuly, kezdes, vege, megjegyzes));
+            celok.add(new CelList(id, felhasznaloid, elerendosuly, kezdes, vege, megjegyzes));
         }
         return celok;
     }
 
     public Cel getCel(int id){
         Optional<Cel> cel = repository.findById(id);
-        if(cel.isPresent())
+        if(cel.isPresent()){
+            System.out.println("servicecel");
             return cel.get();
+        }
+
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
@@ -58,7 +60,8 @@ public class CelService {
         Optional<Cel> optionalCel = repository.findById(id);
         if(optionalCel.isPresent()){
             Cel cel = optionalCel.get();
-            cel.setElerendoSuly(elerendoSuly);
+            cel.setElerendosuly(elerendoSuly);
+            System.out.println("valami2");
             return repository.save(cel);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
