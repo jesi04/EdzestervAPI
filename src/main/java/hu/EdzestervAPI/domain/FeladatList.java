@@ -6,13 +6,16 @@ public class FeladatList {
     private int elegetettKcal;
     private String leiras;
     private String megjegyzes;
+    private String izomcsoport;
 
-    public FeladatList(int id, String nev, int elegetettKcal, String leiras, String megjegyzes) {
+    public FeladatList(int id, String nev, int elegetettKcal, String leiras, String megjegyzes, String izomcsoport) {
         this.id = id;
         this.nev = nev;
         this.elegetettKcal = elegetettKcal;
         this.leiras = leiras;
         this.megjegyzes = megjegyzes;
+        this.izomcsoport = izomcsoport;
+
     }
 
 
@@ -55,5 +58,13 @@ public class FeladatList {
 
     public void setMegjegyzes(String megjegyzes) {
         this.megjegyzes = megjegyzes;
+    }
+
+    public String getIzomcsoport() {
+        return izomcsoport;
+    }
+
+    public void setIzomcsoport(String izomcsoport) {
+        this.izomcsoport = izomcsoport;
     }
 }

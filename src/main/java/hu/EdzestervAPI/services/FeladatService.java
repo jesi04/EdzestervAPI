@@ -32,7 +32,8 @@ public class FeladatService {
             int elegetettKcal = (Integer)object[2];
             String leiras = (String) object[3];
             String megjegyzes = (String) object[4];
-            feladatok.add(new FeladatList(id, nev, elegetettKcal, leiras, megjegyzes));
+            String izomcsoport = (String) object[5];
+            feladatok.add(new FeladatList(id, nev, elegetettKcal, leiras, megjegyzes, izomcsoport));
         }
         return feladatok;
     }
