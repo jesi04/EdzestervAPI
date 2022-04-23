@@ -1,9 +1,6 @@
 package hu.EdzestervAPI.controllers;
 
-import hu.EdzestervAPI.domain.CelList;
-import hu.EdzestervAPI.domain.Edzesterv;
-import hu.EdzestervAPI.domain.Felhasznalo;
-import hu.EdzestervAPI.domain.FelhasznaloList;
+import hu.EdzestervAPI.domain.*;
 import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.services.FelhasznaloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +54,11 @@ public class FelhasznaloController {
     @GetMapping("/edzestervek")
     public List<Edzesterv> getEdzestervek(){
         return service.getEdzestervek();
+    }
+
+    @GetMapping("/edzesnapok/{id}")
+    public List<Edzesnap> getEdzesnapok(@PathVariable("id") int id){
+        return service.getEdzesnapok(id);
     }
 
 

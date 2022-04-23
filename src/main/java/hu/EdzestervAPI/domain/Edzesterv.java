@@ -3,28 +3,19 @@ package hu.EdzestervAPI.domain;
 public class Edzesterv {
     private int id;
     private String nev;
-    private String feladatNev;
-    private String feladatLeiras;
     private int elerendoSuly;
-
+    private String celMegjegyzes;
     public Edzesterv() {
     }
 
-    public Edzesterv(int id, String nev, String feladatNev, String feladatLeiras, int elerendoSuly) {
+    public Edzesterv(int id, String nev,  int elerendoSuly, String celMegjegyzes) {
         this.id = id;
         this.nev = nev;
-        this.feladatNev = feladatNev;
-        this.feladatLeiras = feladatLeiras;
         this.elerendoSuly = elerendoSuly;
+        this.celMegjegyzes = celMegjegyzes;
+
     }
 
-    public String getFeladatLeiras() {
-        return feladatLeiras;
-    }
-
-    public void setFeladatLeiras(String feladatLeiras) {
-        this.feladatLeiras = feladatLeiras;
-    }
 
     public int getId() {
         return id;
@@ -42,19 +33,28 @@ public class Edzesterv {
         this.nev = nev;
     }
 
-    public String getFeladatNev() {
-        return feladatNev;
-    }
-
-    public void setFeladatNev(String feladat) {
-        this.feladatNev = feladat;
-    }
-
     public int getElerendoSuly() {
         return elerendoSuly;
     }
 
     public void setElerendoSuly(int elerendoSuly) {
         this.elerendoSuly = elerendoSuly;
+    }
+    public String getCelMegjegyzes() {
+        return celMegjegyzes;
+    }
+
+    public void setCelMegjegyzes(String celMegjegyzes) {
+        this.celMegjegyzes = celMegjegyzes;
+    }
+
+    @Override
+    public String toString() {
+        return "Edzesterv{" +
+                "id=" + id +
+                ", nev='" + nev + '\'' +
+                ", celMegjegyzes='" + celMegjegyzes + '\'' +
+                ", elerendoSuly=" + elerendoSuly +
+                '}';
     }
 }

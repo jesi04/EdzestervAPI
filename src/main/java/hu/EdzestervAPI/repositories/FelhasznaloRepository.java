@@ -13,7 +13,11 @@ public interface FelhasznaloRepository extends JpaRepository<Felhasznalo, Intege
             , nativeQuery = true)
     public List<Object[]> getFelhasznalok();
 
-    @Query(value="SELECT felhasznalo.id, felhasznalo.nev, feladat.nev AS feladatNev, feladat.leiras AS feladatLeiras, cel.elerendoSuly FROM felhasznalo INNER JOIN feladat ON felhasznalo.id=feladat.id INNER JOIN cel ON felhasznalo.id=cel.felhasznaloid; "
+    @Query(value="SELECT felhasznalo.id, felhasznalo.nev, cel.elerendoSuly, cel.megjegyzes AS celMegjegyzes FROM felhasznalo INNER JOIN cel ON felhasznalo.id=cel.felhasznaloid; "
             , nativeQuery = true)
     public List<Object[]> getEdzestervek();
+
+    @Query(value="SELECT felhasznalo.id, feladat.izomcsoport FROM felhasznalo INNER JOIN feladat ON felhasznalo.id=feladat.id; "
+            , nativeQuery = true)
+    public List<Object[]> edzesnapok(int felhasznaloid);
 }

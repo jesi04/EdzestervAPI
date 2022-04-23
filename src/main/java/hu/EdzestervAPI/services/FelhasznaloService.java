@@ -1,9 +1,6 @@
 package hu.EdzestervAPI.services;
 
-import hu.EdzestervAPI.domain.CelList;
-import hu.EdzestervAPI.domain.Edzesterv;
-import hu.EdzestervAPI.domain.Felhasznalo;
-import hu.EdzestervAPI.domain.FelhasznaloList;
+import hu.EdzestervAPI.domain.*;
 import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.repositories.FelhasznaloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,12 +83,22 @@ public class FelhasznaloService {
         for (Object[] object : data) {
             int id = (Integer) object[0];
             String nev = (String) object[1];
-            String feladatNev = (String) object[2];
-            String feladatLeiras = (String) object[3];
-            int elerendoSuly = (Integer) object[4];
-            edzestervek.add(new Edzesterv(id, nev, feladatNev, feladatLeiras, elerendoSuly));
+            int elerendoSuly = (Integer) object[2];
+            String celMegjegyzes = (String) object[3];
+            edzestervek.add(new Edzesterv(id, nev, elerendoSuly, celMegjegyzes));
         }
         return edzestervek;
+    }
+
+    public List<Edzesnap> getEdzesnapok(int felhid) {
+        List<Edzesnap> eredmeny = new ArrayList<>();
+        List<Object[]> edzesnapok = repository.edzesnapok(felhid);
+        for (Object[] object : edzesnapok) {
+            int id = (Integer) object[0];
+            String izomcsoport = (String) object[1];
+            eredmeny.add(new Edzesnap(id, izomcsoport));
+        }
+        return eredmeny;
     }
 
 }

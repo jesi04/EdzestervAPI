@@ -1,8 +1,6 @@
 package hu.EdzestervAPI.services;
 
-import hu.EdzestervAPI.domain.Feladat;
-import hu.EdzestervAPI.domain.FeladatList;
-import hu.EdzestervAPI.domain.Felhasznalo;
+import hu.EdzestervAPI.domain.*;
 import hu.EdzestervAPI.repositories.FeladatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -72,5 +70,29 @@ public class FeladatService {
         }
     }
 
+    public List<EdzesnapFeladat> getEdzesnapFeladatok(int edzesfelid) {
+        List<EdzesnapFeladat> eredmeny = new ArrayList<>();
+        List<Object[]> edzesnapFeladatok = repository.edzesnapFeladatok(edzesfelid);
+        for (Object[] object : edzesnapFeladatok) {
+            int id = (Integer) object[0];
+            String nev = (String) object[1];
+            String leiras = (String) object[2];
+            String megjegyzes = (String) object[3];
+            eredmeny.add(new EdzesnapFeladat(id, nev, leiras, megjegyzes));
+        }
+        return eredmeny;
+    }
+/*
+    public List<Edzesnap> getEdzesnapok(int felhid) {
+        List<Edzesnap> eredmeny = new ArrayList<>();
+        List<Object[]> edzesnapok = repository.edzesnapok(felhid);
+        for (Object[] object : edzesnapok) {
+            int id = (Integer) object[0];
+            String izomcsoport = (String) object[1];
+            eredmeny.add(new Edzesnap(id, izomcsoport));
+        }
+        return eredmeny;
+    }
+*/
 
 }

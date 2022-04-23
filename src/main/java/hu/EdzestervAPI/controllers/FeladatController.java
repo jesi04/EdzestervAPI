@@ -1,8 +1,6 @@
 package hu.EdzestervAPI.controllers;
 
-import hu.EdzestervAPI.domain.Feladat;
-import hu.EdzestervAPI.domain.FeladatList;
-import hu.EdzestervAPI.domain.Felhasznalo;
+import hu.EdzestervAPI.domain.*;
 import hu.EdzestervAPI.services.FeladatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,4 +40,8 @@ public class FeladatController {
         service.deleteFeladatok(id);
     }
 
+    @GetMapping("/edzesnapfeladatok/{id}")
+    public List<EdzesnapFeladat> getEdzesnapfeladatok(@PathVariable("id") int edzesnapFeladatId){
+        return service.getEdzesnapFeladatok(edzesnapFeladatId);
+    }
 }
