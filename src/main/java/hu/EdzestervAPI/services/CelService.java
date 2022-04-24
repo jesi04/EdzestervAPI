@@ -41,7 +41,6 @@ public class CelService {
     public Cel getCel(int id){
         Optional<Cel> cel = repository.findById(id);
         if(cel.isPresent()){
-            System.out.println("servicecel");
             return cel.get();
         }
 
@@ -61,7 +60,6 @@ public class CelService {
         if(optionalCel.isPresent()){
             Cel cel = optionalCel.get();
             cel.setElerendosuly(elerendoSuly);
-            System.out.println("valami2");
             return repository.save(cel);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);

@@ -40,6 +40,7 @@ public class BemutatoService {
 
     public Bemutato getBemutato(int id){
         Optional<Bemutato> bemutato = repository.findById(id);
+        System.out.println("bemutatoid");
         if(bemutato.isPresent())
             return bemutato.get();
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);

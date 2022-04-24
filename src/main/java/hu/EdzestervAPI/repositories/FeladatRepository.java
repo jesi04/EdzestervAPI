@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface FeladatRepository extends JpaRepository<Feladat, Integer> {
-    @Query(value="SELECT feladat.id, feladat.nev, feladat.elegetettKcal, feladat.leiras, feladat.megjegyzes, feladat.izomcsoport FROM feladat", nativeQuery = true)
+    @Query(value="SELECT * FROM feladat", nativeQuery = true)
     public List<Object[]> getFeladatok();
 
     @Query(value="SELECT feladat.id, feladat.nev, feladat.leiras, feladat.megjegyzes FROM feladat", nativeQuery = true)

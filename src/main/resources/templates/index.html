@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Timetable</title>
+    <title>Edzésterv metódusok</title>
     <style>
             th, td{
                 border: 1px solid black;
@@ -51,8 +51,20 @@
     </tr>
     <tr>
         <td>GET</td>
+        <td><a href="/felhasznalok/2">felhasznalok/{id}</a></td>
+        <td>Egy kiválasztott felhasználó adatai</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
         <td><a href="/feladatok">Feladatok</a></td>
         <td>A feladatok listája</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td><a href="/feladatok/2">feladatok/{id}</a></td>
+        <td>Egy kiválasztott feladat adatai</td>
         <td>engedélyezett</td>
     </tr>
     <tr>
@@ -63,8 +75,20 @@
     </tr>
     <tr>
         <td>GET</td>
+        <td><a href="/celok/2">celok/{id}</a></td>
+        <td>Egy kiválasztott cél adatai</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
         <td><a href="/bemutatok">Bemutatók</a></td>
         <td>A bemutatók listája</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td><a href="/bemutatok/2">bemutatok/{id}</a></td>
+        <td>Egy kiválasztott bemutató adatai</td>
         <td>engedélyezett</td>
     </tr>
     <tr>
@@ -75,46 +99,41 @@
     </tr>
     <tr>
         <td>GET</td>
-        <td><a href="/felhasznalok/2">felhasznalok/{id}</a></td>
-        <td>Egy kiválasztott felhasználó adatai</td>
+        <td><a href="/edzestervek">Edzéstervek</a></td>
+        <td>A felhasználók edzéstervei napokra bontva</td>
         <td>engedélyezett</td>
     </tr>
     <tr>
         <td>GET</td>
-        <td><a href="/comp">comp</a></td>
-        <td>A horgászok összes fogása súly szerint sorbarendezve.</td>
+        <td><a href="/edzesnapok/2">edzesnapok/{id}</a></td>
+        <td>A kiválasztott felhasználó adott napjára jutó izomcsoportok</td>
         <td>engedélyezett</td>
     </tr>
     <tr>
         <td>GET</td>
-        <td><a href="/catchlist/12">catchlist/{id}</a></td>
-        <td>A kiválasztott horgász által kifogott halak fajtája és összsúlya</td>
+        <td><a href="/edzesnapfeladatok/2">edzesnapfeladatok/{id}</a></td>
+        <td>A kiválasztott izomcsoporthoz tartozó feladat leírása és bemutatói</td>
         <td>engedélyezett</td>
     </tr>
     <tr class="back-auth">
         <td>POST</td>
-        <td>fishers</td>
-        <td>Új horgász felvitele</td>
+        <td>felhasznalok</td>
+        <td>Új felhasználó felvitele</td>
         <td>jelszóval védendő</td>
     </tr>
     <tr class="back-auth">
         <td>PATCH</td>
-        <td>fishers/{id}</td>
-        <td>Horgász országának módosítása</td>
+        <td>felhasznalo/{id}</td>
+        <td>Felhasználó emailjének a módosítása</td>
         <td>jelszóval védendő</td>
     </tr>
     <tr class="back-auth">
         <td>DELETE</td>
-        <td>fishers/{id}</td>
-        <td>Kiválasztott horgász törlése</td>
+        <td>felhasznalo/{id}</td>
+        <td>Kiválasztott felhasználó törlése</td>
         <td>jelszóval védendő</td>
     </tr>
-    <tr>
-        <td>GET</td>
-        <td><a href="/students">students</a></td>
-        <td>A tóban lévő halak a kifogott súly szerint sorbarendezve</td>
-        <td>engedélyezett</td>
-    </tr>
+
 </table>
 </body>
 </html>

@@ -34,7 +34,6 @@ public class CelController {
     @PatchMapping("/celok/{id}")
     public Cel updateCel(@PathVariable("id") int id, @RequestBody Cel cel){
         int elerendoSuly = cel.getElerendosuly();
-        System.out.println("valami1");
         return service.updateCel(id, elerendoSuly);
     }
 
