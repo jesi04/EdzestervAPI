@@ -4,6 +4,8 @@ import hu.EdzestervAPI.domain.Bemutato;
 import hu.EdzestervAPI.domain.BemutatoList;
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.dto.NewBemutatoRequest;
+import hu.EdzestervAPI.dto.NewCelRequest;
 import hu.EdzestervAPI.services.BemutatoService;
 import hu.EdzestervAPI.services.CelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,16 @@ public class BemutatoController {
         return service.getBemutato(id);
     }
 
-    @PostMapping("/bemutatok")
+    /*@PostMapping("/bemutatok")
     @ResponseStatus(HttpStatus.CREATED)
     public Bemutato addBemutato(@RequestBody Bemutato bemutato){
         return service.addBemutato(bemutato);
+    }*/
+
+    @PostMapping("/bemutatok")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Bemutato addBemutato(@RequestBody NewBemutatoRequest newBemutatoRequest){
+        return service.addBemutato(newBemutatoRequest);
     }
 
     @PatchMapping("/bemutatok/{id}")

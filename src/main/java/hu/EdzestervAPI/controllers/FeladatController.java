@@ -1,6 +1,8 @@
 package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.*;
+import hu.EdzestervAPI.dto.NewFeladatRequest;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.services.FeladatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,11 +24,17 @@ public class FeladatController {
     public Feladat getFeladat(@PathVariable("id") int id){
         return service.getFeladat(id);
     }
-
+/*
     @PostMapping("/feladatok")
     @ResponseStatus(HttpStatus.CREATED)
     public Feladat addFeladat(@RequestBody Feladat feladat){
         return service.addFeladat(feladat);
+    }*/
+
+    @PostMapping("/feladatok")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Feladat addFeladat(@RequestBody NewFeladatRequest newFeladatRequest){
+        return service.addFeladat(newFeladatRequest);
     }
 
     @PatchMapping("/feladatok/{id}")

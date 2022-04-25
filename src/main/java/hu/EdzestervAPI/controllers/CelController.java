@@ -2,6 +2,9 @@ package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.domain.Feladat;
+import hu.EdzestervAPI.dto.NewCelRequest;
+import hu.EdzestervAPI.dto.NewFeladatRequest;
 import hu.EdzestervAPI.services.CelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +27,17 @@ public class CelController {
         System.out.println("controller");
         return service.getCel(id);
     }
-
+    /*
     @PostMapping("/celok")
     @ResponseStatus(HttpStatus.CREATED)
     public Cel addCel(@RequestBody Cel cel){
         return service.addCel(cel);
+    }*/
+
+    @PostMapping("/celok")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cel addCel(@RequestBody NewCelRequest newCelRequest){
+        return service.addCel(newCelRequest);
     }
 
     @PatchMapping("/celok/{id}")

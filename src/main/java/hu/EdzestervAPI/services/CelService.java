@@ -2,6 +2,9 @@ package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.domain.Feladat;
+import hu.EdzestervAPI.dto.NewCelRequest;
+import hu.EdzestervAPI.dto.NewFeladatRequest;
 import hu.EdzestervAPI.repositories.CelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,12 +50,18 @@ public class CelService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    public Cel addCel(Cel cel){
+    /*public Cel addCel(Cel cel){
         Optional<Cel> optionalCel = repository.findById(cel.getId());
         if(!optionalCel.isPresent()){
             return repository.save(cel);
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }*/
+
+    public Cel addCel(NewCelRequest newCelRequest){
+        Cel cel=newCelRequest.toCel();
+        System.out.println(newCelRequest);
+        return repository.save(cel);
     }
 
     public Cel updateCel(int id, int elerendoSuly) {

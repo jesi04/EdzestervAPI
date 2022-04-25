@@ -1,6 +1,8 @@
 package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.*;
+import hu.EdzestervAPI.dto.NewFeladatRequest;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.repositories.FeladatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,14 +44,21 @@ public class FeladatService {
             return feladat.get();
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
-
+/*
     public Feladat addFeladat(Feladat feladat){
         Optional<Feladat> optionalFeladat = repository.findById(feladat.getId());
         if(!optionalFeladat.isPresent()){
             return repository.save(feladat);
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }*/
+
+    public Feladat addFeladat(NewFeladatRequest newFeladatRequest){
+        Feladat feladat=newFeladatRequest.toFeladat();
+        System.out.println(newFeladatRequest);
+        return repository.save(feladat);
     }
+
 
     public Feladat updateFeladat(int id, String leiras) {
         Optional<Feladat> optionalFeladat = repository.findById(id);

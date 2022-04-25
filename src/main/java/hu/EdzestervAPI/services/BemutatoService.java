@@ -4,6 +4,8 @@ import hu.EdzestervAPI.domain.Bemutato;
 import hu.EdzestervAPI.domain.BemutatoList;
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
+import hu.EdzestervAPI.dto.NewBemutatoRequest;
+import hu.EdzestervAPI.dto.NewCelRequest;
 import hu.EdzestervAPI.repositories.BemutatoRepository;
 import hu.EdzestervAPI.repositories.CelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,12 +48,18 @@ public class BemutatoService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    public Bemutato addBemutato(Bemutato bemutato){
+    /*public Bemutato addBemutato(Bemutato bemutato){
         Optional<Bemutato> optionalBemutato = repository.findById(bemutato.getId());
         if(!optionalBemutato.isPresent()){
             return repository.save(bemutato);
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }*/
+
+    public Bemutato addBemutato(NewBemutatoRequest newBemutatoRequest){
+        Bemutato bemutato=newBemutatoRequest.toBemutato();
+        System.out.println(newBemutatoRequest);
+        return repository.save(bemutato);
     }
 
     public Bemutato updateBemutato(int id, String fajlNeve) {
