@@ -1,6 +1,5 @@
 package hu.EdzestervAPI.dto;
 
-import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.JavasoltEdzes;
 
 import java.util.Date;
@@ -8,7 +7,7 @@ import java.util.Date;
 public class NewJavasoltEdzesRequest {
     private int celid;
     private int feladatid;
-    private Date datum;
+    private String nap;
     private int idotartam;
 
     public int getCelid() {
@@ -27,12 +26,12 @@ public class NewJavasoltEdzesRequest {
         this.feladatid = feladatid;
     }
 
-    public Date getDatum() {
-        return datum;
+    public String getNap() {
+        return nap;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setNap(String nap) {
+        this.nap = nap;
     }
 
     public int getIdotartam() {
@@ -48,7 +47,7 @@ public class NewJavasoltEdzesRequest {
         return "NewJavasoltEdzesRequest{" +
                 "celid=" + celid +
                 ", feladatid=" + feladatid +
-                ", datum=" + datum +
+                ", nap=" + nap +
                 ", idotartam=" + idotartam +
                 '}';
     }
@@ -57,7 +56,7 @@ public class NewJavasoltEdzesRequest {
         JavasoltEdzes javasoltEdzes = new JavasoltEdzes();
         javasoltEdzes.setCelid(this.celid);
         javasoltEdzes.setFeladatid(this.feladatid);
-        javasoltEdzes.setDatum(this.datum);
+        javasoltEdzes.setNap(this.nap);
         javasoltEdzes.setIdotartam(this.idotartam);
         return javasoltEdzes;
     }

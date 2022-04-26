@@ -6,14 +6,14 @@ public class JavasoltEdzesList {
     private int id;
     private int celid;
     private int feladatid;
-    private Date datum;
+    private String nap;
     private int idotartam;
 
-    public JavasoltEdzesList(int id, int celid, int feladatid, Date datum, int idotartam) {
+    public JavasoltEdzesList(int id, int celid, int feladatid, String nap, int idotartam) {
         this.id = id;
         this.celid = celid;
         this.feladatid = feladatid;
-        this.datum = datum;
+        this.nap = nap;
         this.idotartam = idotartam;
     }
 
@@ -43,12 +43,12 @@ public class JavasoltEdzesList {
         this.feladatid = feladatid;
     }
 
-    public Date getDatum() {
-        return datum;
+    public String getNap() {
+        return nap;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setNap(String nap) {
+        this.nap = nap;
     }
 
     public int getIdotartam() {

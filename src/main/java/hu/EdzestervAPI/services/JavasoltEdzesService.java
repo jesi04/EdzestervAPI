@@ -1,12 +1,8 @@
 package hu.EdzestervAPI.services;
 
-import hu.EdzestervAPI.domain.Felhasznalo;
-import hu.EdzestervAPI.domain.FelhasznaloList;
 import hu.EdzestervAPI.domain.JavasoltEdzes;
 import hu.EdzestervAPI.domain.JavasoltEdzesList;
-import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.dto.NewJavasoltEdzesRequest;
-import hu.EdzestervAPI.repositories.BemutatoRepository;
 import hu.EdzestervAPI.repositories.JavasoltEdzesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,9 +30,9 @@ public class JavasoltEdzesService {
             int id = javasoltEdzes.getId();
             int celid = javasoltEdzes.getCelid();
             int feladatid = javasoltEdzes.getFeladatid();
-            Date datum = javasoltEdzes.getDatum();
+            String nap = javasoltEdzes.getNap();
             int idotartam = javasoltEdzes.getIdotartam();
-            javasoltak.add(new JavasoltEdzesList(id, celid, feladatid, datum, idotartam));
+            javasoltak.add(new JavasoltEdzesList(id, celid, feladatid, nap, idotartam));
         }
         return javasoltak;
     }
