@@ -2,9 +2,7 @@ package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.Cel;
 import hu.EdzestervAPI.domain.CelList;
-import hu.EdzestervAPI.domain.Feladat;
 import hu.EdzestervAPI.dto.NewCelRequest;
-import hu.EdzestervAPI.dto.NewFeladatRequest;
 import hu.EdzestervAPI.repositories.CelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,14 +26,14 @@ public class CelService {
 
     public List<CelList> getCelok() {
         List<CelList> celok = new ArrayList<>();
-        List<Object[]> data = repository.getCelok();
-        for (Object[] object : data) {
-            int id = (Integer)object[0];
-            int felhasznaloid = (Integer)object[1];
-            int elerendosuly = (Integer)object[2];
-            Date kezdes = (Date)object[3];
-            Date vege = (Date)object[4];
-            String megjegyzes = (String) object[5];
+        List<Cel> data = repository.getCelok();
+        for (Cel cel : data) {
+            int id = cel.getId();
+            int felhasznaloid = cel.getFelhasznaloid();
+            int elerendosuly = cel.getElerendo_suly();
+            Date kezdes = cel.getKezdes();
+            Date vege = cel.getVege();
+            String megjegyzes = cel.getMegjegyzes();
             celok.add(new CelList(id, felhasznaloid, elerendosuly, kezdes, vege, megjegyzes));
         }
         return celok;
@@ -68,7 +66,7 @@ public class CelService {
         Optional<Cel> optionalCel = repository.findById(id);
         if(optionalCel.isPresent()){
             Cel cel = optionalCel.get();
-            cel.setElerendosuly(elerendoSuly);
+            cel.setElerendo_suly(elerendoSuly);
             return repository.save(cel);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);

@@ -4,6 +4,8 @@ import hu.EdzestervAPI.domain.CelList;
 import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.JavasoltEdzes;
 import hu.EdzestervAPI.domain.JavasoltEdzesList;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
+import hu.EdzestervAPI.dto.NewJavasoltEdzesRequest;
 import hu.EdzestervAPI.services.CelService;
 import hu.EdzestervAPI.services.JavasoltEdzesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,16 @@ public class JavasoltEdzesController {
         return service.getJavasoltEdzes(id);
     }
 
-    @PostMapping("/javasoltak")
+    /*@PostMapping("/javasoltak")
     @ResponseStatus(HttpStatus.CREATED)
     public JavasoltEdzes addJavasoltEdzes(@RequestBody JavasoltEdzes javasoltEdzes){
         return service.addJavasoltEdzes(javasoltEdzes);
+    }*/
+
+    @PostMapping("/javasoltak")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JavasoltEdzes addJavasoltEdzes(@RequestBody NewJavasoltEdzesRequest newJavasoltEdzesRequest){
+        return service.addJavasoltEdzes(newJavasoltEdzesRequest);
     }
 
     @PatchMapping("/javasoltak/{id}")

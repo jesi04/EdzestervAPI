@@ -10,7 +10,7 @@ public class Cel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int felhasznaloid;
-    private int elerendosuly;
+    private int elerendo_suly;
     private Date kezdes;
     private Date vege;
     private String megjegyzes;
@@ -19,7 +19,7 @@ public class Cel {
     public Cel(int id, int felhasznaloid, int elerendosuly, Date kezdes, Date vege, String megjegyzes) {
         this.id = id;
         this.felhasznaloid = felhasznaloid;
-        this.elerendosuly = elerendosuly;
+        this.elerendo_suly = elerendosuly;
         this.kezdes = kezdes;
         this.vege = vege;
         this.megjegyzes = megjegyzes;
@@ -44,12 +44,12 @@ public class Cel {
         this.felhasznaloid = felhasznaloid;
     }
 
-    public int getElerendosuly() {
-        return elerendosuly;
+    public int getElerendo_suly() {
+        return elerendo_suly;
     }
 
-    public void setElerendosuly(int elerendosuly) {
-        this.elerendosuly = elerendosuly;
+    public void setElerendo_suly(int elerendo_suly) {
+        this.elerendo_suly = elerendo_suly;
     }
 
     public Date getKezdes() {

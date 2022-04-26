@@ -1,7 +1,6 @@
 package hu.EdzestervAPI.dto;
 
 import hu.EdzestervAPI.domain.Cel;
-import hu.EdzestervAPI.domain.Feladat;
 
 import java.util.Date;
 
@@ -67,7 +66,7 @@ public class NewCelRequest {
     public Cel toCel(){
         Cel cel = new Cel();
         cel.setFelhasznaloid(this.felhasznaloid);
-        cel.setElerendosuly(this.elerendoSuly);
+        cel.setElerendo_suly(this.elerendoSuly);
         cel.setKezdes(this.kezdes);
         cel.setVege(this.vege);
         cel.setMegjegyzes(this.megjegyzes);

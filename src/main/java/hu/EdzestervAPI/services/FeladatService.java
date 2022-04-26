@@ -2,7 +2,6 @@ package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.*;
 import hu.EdzestervAPI.dto.NewFeladatRequest;
-import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
 import hu.EdzestervAPI.repositories.FeladatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,14 +24,14 @@ public class FeladatService {
 
     public List<FeladatList> getFeladatok() {
         List<FeladatList> feladatok = new ArrayList<>();
-        List<Object[]> data = repository.getFeladatok();
-        for (Object[] object : data) {
-            int id = (Integer)object[0];
-            String nev = (String) object[1];
-            int elegetettKcal = (Integer)object[2];
-            String leiras = (String) object[3];
-            String megjegyzes = (String) object[4];
-            String izomcsoport = (String) object[5];
+        List<Feladat> data = repository.getFeladatok();
+        for (Feladat feladat : data) {
+            int id = feladat.getId();
+            String nev = feladat.getNev();
+            int elegetettKcal = feladat.getElegetett_kcal();
+            String leiras = feladat.getLeiras();
+            String megjegyzes = feladat.getMegjegyzes();
+            String izomcsoport = feladat.getIzomcsoport();
             feladatok.add(new FeladatList(id, nev, elegetettKcal, leiras, megjegyzes, izomcsoport));
         }
         return feladatok;
@@ -81,27 +80,16 @@ public class FeladatService {
 
     public List<EdzesnapFeladat> getEdzesnapFeladatok(int edzesfelid) {
         List<EdzesnapFeladat> eredmeny = new ArrayList<>();
-        List<Object[]> edzesnapFeladatok = repository.edzesnapFeladatok(edzesfelid);
-        for (Object[] object : edzesnapFeladatok) {
-            int id = (Integer) object[0];
-            String nev = (String) object[1];
-            String leiras = (String) object[2];
-            String megjegyzes = (String) object[3];
+        List<EdzesnapFeladat> edzesnapFeladatok = repository.edzesnapFeladatok(edzesfelid);
+        for (EdzesnapFeladat edzesnapFeladat : edzesnapFeladatok) {
+            int id = edzesnapFeladat.getId();
+            String nev = edzesnapFeladat.getNev();
+            String leiras = edzesnapFeladat.getLeiras();
+            String megjegyzes = edzesnapFeladat.getMegjegyzes();
             eredmeny.add(new EdzesnapFeladat(id, nev, leiras, megjegyzes));
         }
         return eredmeny;
     }
-/*
-    public List<Edzesnap> getEdzesnapok(int felhid) {
-        List<Edzesnap> eredmeny = new ArrayList<>();
-        List<Object[]> edzesnapok = repository.edzesnapok(felhid);
-        for (Object[] object : edzesnapok) {
-            int id = (Integer) object[0];
-            String izomcsoport = (String) object[1];
-            eredmeny.add(new Edzesnap(id, izomcsoport));
-        }
-        return eredmeny;
-    }
-*/
+
 
 }

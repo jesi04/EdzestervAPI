@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,14 +23,14 @@ public class FelhasznaloService {
 
     public List<FelhasznaloList> getFelhasznalok() {
         List<FelhasznaloList> felhasznalok = new ArrayList<>();
-        List<Object[]> data = repository.getFelhasznalok();
-        for (Object[] object : data) {
-            int id = (Integer)object[0];
-            String email = (String) object[1];
-            String nev = (String) object[2];
-            Date szuldat = (Date) object[3];
-            int magassag = (Integer) object[4];
-            String megjegyzes = (String) object[5];
+        List<Felhasznalo> data = repository.getFelhasznalok();
+        for (Felhasznalo felhasznalo : data) {
+            int id = felhasznalo.getId();
+            String email = felhasznalo.getEmail();
+            String nev = felhasznalo.getNev();
+            Date szuldat = felhasznalo.getSzuldat();
+            int magassag = felhasznalo.getMagassag();
+            String megjegyzes = felhasznalo.getMegjegyzes();
             felhasznalok.add(new FelhasznaloList(id, email, nev, szuldat, magassag, megjegyzes));
         }
         return felhasznalok;
@@ -79,23 +78,30 @@ public class FelhasznaloService {
 
     public List<Edzesterv> getEdzestervek() {
         List<Edzesterv> edzestervek = new ArrayList<>();
-        List<Object[]> data = repository.getEdzestervek();
-        for (Object[] object : data) {
-            int id = (Integer) object[0];
-            String nev = (String) object[1];
-            int elerendoSuly = (Integer) object[2];
-            String celMegjegyzes = (String) object[3];
-            edzestervek.add(new Edzesterv(id, nev, elerendoSuly, celMegjegyzes));
+        List<Edzesterv> data = repository.getEdzestervek();
+        for (Edzesterv edzesterv : data) {
+            int id = edzesterv.getId();
+            String email = edzesterv.getEmail();
+            String nev = edzesterv.getNev();
+            Date szuldat = edzesterv.getSzuldat();
+            String felhasznaloMegjegyzes = edzesterv.getFelhasznaloMegjegyzes();
+            int celId = edzesterv.getCelId();
+            int felhasznaloid = edzesterv.getFelhasznaloid();
+            int elerendoSuly = edzesterv.getElerendo_suly();
+            Date kezdes = edzesterv.getKezdes();
+            Date vege = edzesterv.getVege();
+            String celMegjegyzes = edzesterv.getCelMegjegyzes();
+            edzestervek.add(new Edzesterv(id, email, nev, szuldat, felhasznaloMegjegyzes, celId, felhasznaloid, elerendoSuly, kezdes, vege, celMegjegyzes));
         }
         return edzestervek;
     }
 
     public List<Edzesnap> getEdzesnapok(int felhid) {
         List<Edzesnap> eredmeny = new ArrayList<>();
-        List<Object[]> edzesnapok = repository.edzesnapok(felhid);
-        for (Object[] object : edzesnapok) {
-            int id = (Integer) object[0];
-            String izomcsoport = (String) object[1];
+        List<Edzesnap> edzesnapok = repository.edzesnapok(felhid);
+        for (Edzesnap edzesnap : edzesnapok) {
+            int id = edzesnap.getId();
+            String izomcsoport = edzesnap.getIzomcsport();
             eredmeny.add(new Edzesnap(id, izomcsoport));
         }
         return eredmeny;

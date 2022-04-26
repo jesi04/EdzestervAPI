@@ -2,12 +2,8 @@ package hu.EdzestervAPI.controllers;
 
 import hu.EdzestervAPI.domain.Bemutato;
 import hu.EdzestervAPI.domain.BemutatoList;
-import hu.EdzestervAPI.domain.Cel;
-import hu.EdzestervAPI.domain.CelList;
 import hu.EdzestervAPI.dto.NewBemutatoRequest;
-import hu.EdzestervAPI.dto.NewCelRequest;
 import hu.EdzestervAPI.services.BemutatoService;
-import hu.EdzestervAPI.services.CelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +39,7 @@ public class BemutatoController {
 
     @PatchMapping("/bemutatok/{id}")
     public Bemutato updateBemutato(@PathVariable("id") int id, @RequestBody Bemutato bemutato){
-        String fajlNeve = bemutato.getFajlNeve();
+        String fajlNeve = bemutato.getFajl_neve();
         return service.updateBemutato(id, fajlNeve);
     }
 

@@ -4,6 +4,8 @@ import hu.EdzestervAPI.domain.Felhasznalo;
 import hu.EdzestervAPI.domain.FelhasznaloList;
 import hu.EdzestervAPI.domain.JavasoltEdzes;
 import hu.EdzestervAPI.domain.JavasoltEdzesList;
+import hu.EdzestervAPI.dto.NewFelhasznaloRequest;
+import hu.EdzestervAPI.dto.NewJavasoltEdzesRequest;
 import hu.EdzestervAPI.repositories.BemutatoRepository;
 import hu.EdzestervAPI.repositories.JavasoltEdzesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +29,13 @@ public class JavasoltEdzesService {
 
     public List<JavasoltEdzesList> getJavasoltak() {
         List<JavasoltEdzesList> javasoltak = new ArrayList<>();
-        List<Object[]> data = repository.getJavasoltak();
-        for (Object[] object : data) {
-            int id = (Integer)object[0];
-            int celid = (Integer)object[1];
-            int feladatid = (Integer)object[2];
-            Date datum = (Date) object[3];
-            int idotartam = (Integer) object[4];
+        List<JavasoltEdzes> data = repository.getJavasoltak();
+        for (JavasoltEdzes javasoltEdzes : data) {
+            int id = javasoltEdzes.getId();
+            int celid = javasoltEdzes.getCelid();
+            int feladatid = javasoltEdzes.getFeladatid();
+            Date datum = javasoltEdzes.getDatum();
+            int idotartam = javasoltEdzes.getIdotartam();
             javasoltak.add(new JavasoltEdzesList(id, celid, feladatid, datum, idotartam));
         }
         return javasoltak;
@@ -46,12 +48,17 @@ public class JavasoltEdzesService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    public JavasoltEdzes addJavasoltEdzes(JavasoltEdzes javasoltEdzes){
+    /*public JavasoltEdzes addJavasoltEdzes(JavasoltEdzes javasoltEdzes){
         Optional<JavasoltEdzes> optionalJavasoltEdzes = repository.findById(javasoltEdzes.getId());
         if(!optionalJavasoltEdzes.isPresent()){
             return repository.save(javasoltEdzes);
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT);
+    }*/
+    public JavasoltEdzes addJavasoltEdzes(NewJavasoltEdzesRequest newJavasoltEdzesRequest){
+        JavasoltEdzes javasoltEdzes = newJavasoltEdzesRequest.toJavasoltEdzes();
+        System.out.println(newJavasoltEdzesRequest);
+        return repository.save(javasoltEdzes);
     }
 
     public JavasoltEdzes updateJavasoltEdzes(int id, int idotartam) {

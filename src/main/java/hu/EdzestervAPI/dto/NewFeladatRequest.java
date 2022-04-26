@@ -1,7 +1,6 @@
 package hu.EdzestervAPI.dto;
 
 import hu.EdzestervAPI.domain.Feladat;
-import hu.EdzestervAPI.domain.Felhasznalo;
 
 public class NewFeladatRequest {
     private String nev;
@@ -65,7 +64,7 @@ public class NewFeladatRequest {
     public Feladat toFeladat(){
         Feladat feladat = new Feladat();
         feladat.setNev(this.nev);
-        feladat.setElegetettKcal(this.elegetettKcal);
+        feladat.setElegetett_kcal(this.elegetettKcal);
         feladat.setLeiras(this.leiras);
         feladat.setMegjegyzes(this.megjegyzes);
         feladat.setIzomcsoport(this.izomcsoport);

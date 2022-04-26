@@ -1,9 +1,6 @@
 package hu.EdzestervAPI.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Feladat {
@@ -12,7 +9,8 @@ public class Feladat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nev;
-    private int elegetettKcal;
+    //@Column(name = "elegetettKcal")
+    private int elegetett_kcal;
     private String leiras;
     private String megjegyzes;
     private String izomcsoport;
@@ -20,7 +18,7 @@ public class Feladat {
     public Feladat(int id, String nev, int elegetettKcal, String leiras, String megjegyzes, String izomcsoport) {
         this.id = id;
         this.nev = nev;
-        this.elegetettKcal = elegetettKcal;
+        this.elegetett_kcal = elegetettKcal;
         this.leiras = leiras;
         this.megjegyzes = megjegyzes;
         this.izomcsoport = izomcsoport;
@@ -45,12 +43,12 @@ public class Feladat {
         this.nev = nev;
     }
 
-    public int getElegetettKcal() {
-        return elegetettKcal;
+    public int getElegetett_kcal() {
+        return elegetett_kcal;
     }
 
-    public void setElegetettKcal(int elegetettKcal) {
-        this.elegetettKcal = elegetettKcal;
+    public void setElegetett_kcal(int elegetett_kcal) {
+        this.elegetett_kcal = elegetett_kcal;
     }
 
     public String getLeiras() {

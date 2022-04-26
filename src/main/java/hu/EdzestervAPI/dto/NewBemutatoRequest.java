@@ -1,7 +1,6 @@
 package hu.EdzestervAPI.dto;
 
 import hu.EdzestervAPI.domain.Bemutato;
-import hu.EdzestervAPI.domain.Cel;
 
 public class NewBemutatoRequest {
     private int feladatid;
@@ -44,8 +43,8 @@ public class NewBemutatoRequest {
     public Bemutato toBemutato(){
         Bemutato bemutato = new Bemutato();
         bemutato.setFeladatid(this.feladatid);
-        bemutato.setFajlNeve(this.fajlNeve);
-        bemutato.setFajlTipusa(this.fajlTipusa);
+        bemutato.setFajl_neve(this.fajlNeve);
+        bemutato.setFajl_tipusa(this.fajlTipusa);
         return bemutato;
     }
 }

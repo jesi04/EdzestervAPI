@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface JavasoltEdzesRepository extends JpaRepository<JavasoltEdzes, Integer> {
-    @Query(value="SELECT javasoltedzes.id, javasoltedzes.celid, javasoltedzes.feladatid, javasoltedzes.datum, javasoltedzes.idotartam FROM javasoltedzes;"
+    @Query(value="SELECT * FROM javasolt_edzes;"
             , nativeQuery = true)
-    public List<Object[]> getJavasoltak();
+    public List<JavasoltEdzes> getJavasoltak();
 }

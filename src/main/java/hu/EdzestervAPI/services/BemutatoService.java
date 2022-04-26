@@ -2,12 +2,8 @@ package hu.EdzestervAPI.services;
 
 import hu.EdzestervAPI.domain.Bemutato;
 import hu.EdzestervAPI.domain.BemutatoList;
-import hu.EdzestervAPI.domain.Cel;
-import hu.EdzestervAPI.domain.CelList;
 import hu.EdzestervAPI.dto.NewBemutatoRequest;
-import hu.EdzestervAPI.dto.NewCelRequest;
 import hu.EdzestervAPI.repositories.BemutatoRepository;
-import hu.EdzestervAPI.repositories.CelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -15,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,12 +24,12 @@ public class BemutatoService {
 
     public List<BemutatoList> getBemutatok() {
         List<BemutatoList> bemutatok = new ArrayList<>();
-        List<Object[]> data = repository.getBemutatok();
-        for (Object[] object : data) {
-            int id = (Integer)object[0];
-            int feladatid = (Integer)object[1];
-            String faljNeve = (String) object[2];
-            String fajlTipusa = (String) object[3];
+        List<Bemutato> data = repository.getBemutatok();
+        for (Bemutato bemutato : data) {
+            int id = bemutato.getId();
+            int feladatid = bemutato.getFeladatid();
+            String faljNeve = bemutato.getFajl_neve();
+            String fajlTipusa = bemutato.getFajl_tipusa();
             bemutatok.add(new BemutatoList(id, feladatid, faljNeve, fajlTipusa));
         }
         return bemutatok;
@@ -42,7 +37,6 @@ public class BemutatoService {
 
     public Bemutato getBemutato(int id){
         Optional<Bemutato> bemutato = repository.findById(id);
-        System.out.println("bemutatoid");
         if(bemutato.isPresent())
             return bemutato.get();
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -66,7 +60,7 @@ public class BemutatoService {
         Optional<Bemutato> optionalBemutato = repository.findById(id);
         if(optionalBemutato.isPresent()){
             Bemutato bemutato = optionalBemutato.get();
-            bemutato.setFajlNeve(fajlNeve);
+            bemutato.setFajl_neve(fajlNeve);
             return repository.save(bemutato);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);

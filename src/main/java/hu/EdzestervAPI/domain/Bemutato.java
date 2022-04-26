@@ -11,15 +11,15 @@ public class Bemutato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int feladatid;
-    private String fajlNeve;
-    private String fajlTipusa;
+    private String fajl_neve;
+    private String fajl_tipusa;
 
 
     public Bemutato(int id, int feladatid, String fajlNeve, String fajlTipusa) {
         this.id = id;
         this.feladatid = feladatid;
-        this.fajlNeve = fajlNeve;
-        this.fajlTipusa = fajlTipusa;
+        this.fajl_neve = fajlNeve;
+        this.fajl_tipusa = fajlTipusa;
     }
 
     public Bemutato() {
@@ -41,19 +41,19 @@ public class Bemutato {
         this.feladatid = feladatid;
     }
 
-    public String getFajlNeve() {
-        return fajlNeve;
+    public String getFajl_neve() {
+        return fajl_neve;
     }
 
-    public void setFajlNeve(String fajlNeve) {
-        this.fajlNeve = fajlNeve;
+    public void setFajl_neve(String fajl_neve) {
+        this.fajl_neve = fajl_neve;
     }
 
-    public String getFajlTipusa() {
-        return fajlTipusa;
+    public String getFajl_tipusa() {
+        return fajl_tipusa;
     }
 
-    public void setFajlTipusa(String fajlTipusa) {
-        this.fajlTipusa = fajlTipusa;
+    public void setFajl_tipusa(String fajl_tipusa) {
+        this.fajl_tipusa = fajl_tipusa;
     }
 }

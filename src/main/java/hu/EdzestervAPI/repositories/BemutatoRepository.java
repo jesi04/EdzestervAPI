@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface BemutatoRepository extends JpaRepository<Bemutato, Integer> {
-    @Query(value="SELECT bemutato.id, bemutato.feladatid, bemutato.fajlNeve, bemutato.fajlTipusa FROM bemutato", nativeQuery = true)
-    public List<Object[]> getBemutatok();
+    @Query(value="SELECT bemutato.id, bemutato.feladatid, bemutato.fajl_neve, bemutato.fajl_tipusa FROM bemutato", nativeQuery = true)
+    public List<Bemutato> getBemutatok();
 }
