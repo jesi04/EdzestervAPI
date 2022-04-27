@@ -99,22 +99,11 @@
     </tr>
     <tr>
         <td>GET</td>
-        <td><a href="/edzestervek">Edzéstervek</a></td>
-        <td>A felhasználók edzéstervei napokra bontva</td>
+        <td><a href="/javasoltak/2">javasoltak/{id}</a></td>
+        <td>Egy kiválasztott javasolt edzés adatai</td>
         <td>engedélyezett</td>
     </tr>
-    <tr>
-        <td>GET</td>
-        <td><a href="/edzesnapok/2">edzesnapok/{id}</a></td>
-        <td>A kiválasztott felhasználó adott napjára jutó izomcsoportok</td>
-        <td>engedélyezett</td>
-    </tr>
-    <tr>
-        <td>GET</td>
-        <td><a href="/edzesnapfeladatok/2">edzesnapfeladatok/{id}</a></td>
-        <td>A kiválasztott izomcsoporthoz tartozó feladat leírása és bemutatói</td>
-        <td>engedélyezett</td>
-    </tr>
+
     <tr class="back-auth">
         <td>POST</td>
         <td>felhasznalok</td>
@@ -123,14 +112,93 @@
     </tr>
     <tr class="back-auth">
         <td>PATCH</td>
-        <td>felhasznalo/{id}</td>
+        <td>felhasznalok/{id}</td>
         <td>Felhasználó emailjének a módosítása</td>
         <td>jelszóval védendő</td>
     </tr>
     <tr class="back-auth">
         <td>DELETE</td>
-        <td>felhasznalo/{id}</td>
+        <td>felhasznalok/{id}</td>
         <td>Kiválasztott felhasználó törlése</td>
+        <td>jelszóval védendő</td>
+    </tr>
+
+
+
+    <tr class="back-auth">
+        <td>POST</td>
+        <td>feladatok</td>
+        <td>Új feladat felvitele</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>PATCH</td>
+        <td>feladatok/{id}</td>
+        <td>Feladat leírásának a módosítása</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>DELETE</td>
+        <td>feladatok/{id}</td>
+        <td>Kiválasztott feladat törlése</td>
+        <td>jelszóval védendő</td>
+    </tr>
+
+
+    <tr class="back-auth">
+        <td>POST</td>
+        <td>celok</td>
+        <td>Új cél felvitele</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>PATCH</td>
+        <td>celok/{id}</td>
+        <td>Cél elérendő súlyának a módosítása</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>DELETE</td>
+        <td>celok/{id}</td>
+        <td>Kiválasztott cél törlése</td>
+        <td>jelszóval védendő</td>
+    </tr>
+
+    <tr class="back-auth">
+        <td>POST</td>
+        <td>bemutatok</td>
+        <td>Új bemutató felvitele</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>PATCH</td>
+        <td>bemutatok/{id}</td>
+        <td>Bemutató fájl nevének a módosítása</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>DELETE</td>
+        <td>bemutatok/{id}</td>
+        <td>Kiválasztott bemutató törlése</td>
+        <td>jelszóval védendő</td>
+    </tr>
+
+    <tr class="back-auth">
+        <td>POST</td>
+        <td>javasoltak</td>
+        <td>Új javasolt edzés felvitele</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>PATCH</td>
+        <td>javasoltak/{id}</td>
+        <td>javasolt edzés időtartamának a módosítása</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>DELETE</td>
+        <td>javasoltak/{id}</td>
+        <td>Kiválasztott javasolt edzés törlése</td>
         <td>jelszóval védendő</td>
     </tr>
 
