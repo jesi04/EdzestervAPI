@@ -16,10 +16,10 @@ public class Cel {
     private String megjegyzes;
 
 
-    public Cel(int id, int felhasznaloid, int elerendosuly, Date kezdes, Date vege, String megjegyzes) {
+    public Cel(int id, int felhasznaloid, int elerendo_suly, Date kezdes, Date vege, String megjegyzes) {
         this.id = id;
         this.felhasznaloid = felhasznaloid;
-        this.elerendo_suly = elerendosuly;
+        this.elerendo_suly = elerendo_suly;
         this.kezdes = kezdes;
         this.vege = vege;
         this.megjegyzes = megjegyzes;

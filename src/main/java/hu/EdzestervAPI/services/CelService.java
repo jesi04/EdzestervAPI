@@ -30,11 +30,11 @@ public class CelService {
         for (Cel cel : data) {
             int id = cel.getId();
             int felhasznaloid = cel.getFelhasznaloid();
-            int elerendosuly = cel.getElerendo_suly();
+            int elerendo_suly = cel.getElerendo_suly();
             Date kezdes = cel.getKezdes();
             Date vege = cel.getVege();
             String megjegyzes = cel.getMegjegyzes();
-            celok.add(new CelList(id, felhasznaloid, elerendosuly, kezdes, vege, megjegyzes));
+            celok.add(new CelList(id, felhasznaloid, elerendo_suly, kezdes, vege, megjegyzes));
         }
         return celok;
     }
@@ -62,11 +62,11 @@ public class CelService {
         return repository.save(cel);
     }
 
-    public Cel updateCel(int id, int elerendoSuly) {
+    public Cel updateCel(int id, int elerendo_suly) {
         Optional<Cel> optionalCel = repository.findById(id);
         if(optionalCel.isPresent()){
             Cel cel = optionalCel.get();
-            cel.setElerendo_suly(elerendoSuly);
+            cel.setElerendo_suly(elerendo_suly);
             return repository.save(cel);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);

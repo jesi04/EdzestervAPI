@@ -24,12 +24,6 @@ public class FeladatController {
     public Feladat getFeladat(@PathVariable("id") int id){
         return service.getFeladat(id);
     }
-/*
-    @PostMapping("/feladatok")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Feladat addFeladat(@RequestBody Feladat feladat){
-        return service.addFeladat(feladat);
-    }*/
 
     @PostMapping("/feladatok")
     @ResponseStatus(HttpStatus.CREATED)

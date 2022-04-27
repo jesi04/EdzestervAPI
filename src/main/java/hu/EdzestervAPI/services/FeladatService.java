@@ -43,14 +43,6 @@ public class FeladatService {
             return feladat.get();
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
-/*
-    public Feladat addFeladat(Feladat feladat){
-        Optional<Feladat> optionalFeladat = repository.findById(feladat.getId());
-        if(!optionalFeladat.isPresent()){
-            return repository.save(feladat);
-        }
-        throw new ResponseStatusException(HttpStatus.CONFLICT);
-    }*/
 
     public Feladat addFeladat(NewFeladatRequest newFeladatRequest){
         Feladat feladat=newFeladatRequest.toFeladat();

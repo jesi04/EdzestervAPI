@@ -6,15 +6,15 @@ public class CelList {
 
     private int id;
     private int felhasznaloid;
-    private int elerendoSuly;
+    private int elerendo_suly;
     private Date kezdes;
     private Date vege;
     private String megjegyzes;
 
-    public CelList(int id, int felhasznaloid, int elerendoSuly, Date kezdes, Date vege, String megjegyzes) {
+    public CelList(int id, int felhasznaloid, int elerendo_suly, Date kezdes, Date vege, String megjegyzes) {
         this.id = id;
         this.felhasznaloid = felhasznaloid;
-        this.elerendoSuly = elerendoSuly;
+        this.elerendo_suly = elerendo_suly;
         this.kezdes = kezdes;
         this.vege = vege;
         this.megjegyzes = megjegyzes;
@@ -38,12 +38,12 @@ public class CelList {
         this.felhasznaloid = felhasznaloid;
     }
 
-    public int getElerendoSuly() {
-        return elerendoSuly;
+    public int getElerendo_suly() {
+        return elerendo_suly;
     }
 
-    public void setElerendoSuly(int elerendoSuly) {
-        this.elerendoSuly = elerendoSuly;
+    public void setElerendo_suly(int elerendo_suly) {
+        this.elerendo_suly = elerendo_suly;
     }
 
     public Date getKezdes() {

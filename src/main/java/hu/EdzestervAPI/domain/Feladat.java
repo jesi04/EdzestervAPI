@@ -24,6 +24,7 @@ public class Feladat {
         this.izomcsoport = izomcsoport;
     }
 
+
     public Feladat() {
     }
 

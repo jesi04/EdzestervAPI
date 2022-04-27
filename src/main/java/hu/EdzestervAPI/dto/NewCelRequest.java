@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class NewCelRequest {
     private int felhasznaloid;
-    private int elerendoSuly;
+    private int elerendo_suly;
     private Date kezdes;
     private Date vege;
     private String megjegyzes;
@@ -20,12 +20,12 @@ public class NewCelRequest {
         this.felhasznaloid = felhasznaloid;
     }
 
-    public int getElerendoSuly() {
-        return elerendoSuly;
+    public int getElerendo_suly() {
+        return elerendo_suly;
     }
 
-    public void setElerendoSuly(int elerendoSuly) {
-        this.elerendoSuly = elerendoSuly;
+    public void setElerendo_suly(int elerendo_suly) {
+        this.elerendo_suly = elerendo_suly;
     }
 
     public Date getKezdes() {
@@ -56,7 +56,7 @@ public class NewCelRequest {
     public String toString() {
         return "NewCelRequest{" +
                 "felhasznaloid='" + felhasznaloid + '\'' +
-                ", elerendoSuly=" + elerendoSuly +
+                ", elerendo_suly=" + elerendo_suly +
                 ", kezdes=" + kezdes +
                 ", vege=" + vege +
                 ", megjegyzes='" + megjegyzes + '\'' +
@@ -66,7 +66,7 @@ public class NewCelRequest {
     public Cel toCel(){
         Cel cel = new Cel();
         cel.setFelhasznaloid(this.felhasznaloid);
-        cel.setElerendo_suly(this.elerendoSuly);
+        cel.setElerendo_suly(this.elerendo_suly);
         cel.setKezdes(this.kezdes);
         cel.setVege(this.vege);
         cel.setMegjegyzes(this.megjegyzes);
