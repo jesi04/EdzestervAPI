@@ -1,6 +1,5 @@
 package hu.EdzestervAPI.repositories;
 
-import hu.EdzestervAPI.domain.EdzesnapFeladat;
 import hu.EdzestervAPI.domain.Feladat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +12,4 @@ public interface FeladatRepository extends JpaRepository<Feladat, Integer> {
     @Query(value="SELECT * FROM feladat", nativeQuery = true)
     public List<Feladat> getFeladatok();
 
-    @Query(value="SELECT feladat.id, feladat.nev, feladat.leiras, feladat.megjegyzes FROM feladat", nativeQuery = true)
-    public List<EdzesnapFeladat> edzesnapFeladatok(int edzesnapFeladatId);
 }

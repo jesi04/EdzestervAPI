@@ -70,18 +70,6 @@ public class FeladatService {
         }
     }
 
-    public List<EdzesnapFeladat> getEdzesnapFeladatok(int edzesfelid) {
-        List<EdzesnapFeladat> eredmeny = new ArrayList<>();
-        List<EdzesnapFeladat> edzesnapFeladatok = repository.edzesnapFeladatok(edzesfelid);
-        for (EdzesnapFeladat edzesnapFeladat : edzesnapFeladatok) {
-            int id = edzesnapFeladat.getId();
-            String nev = edzesnapFeladat.getNev();
-            String leiras = edzesnapFeladat.getLeiras();
-            String megjegyzes = edzesnapFeladat.getMegjegyzes();
-            eredmeny.add(new EdzesnapFeladat(id, nev, leiras, megjegyzes));
-        }
-        return eredmeny;
-    }
 
 
 }

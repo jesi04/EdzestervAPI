@@ -48,13 +48,7 @@ public class CelService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    /*public Cel addCel(Cel cel){
-        Optional<Cel> optionalCel = repository.findById(cel.getId());
-        if(!optionalCel.isPresent()){
-            return repository.save(cel);
-        }
-        throw new ResponseStatusException(HttpStatus.CONFLICT);
-    }*/
+
 
     public Cel addCel(NewCelRequest newCelRequest){
         Cel cel=newCelRequest.toCel();

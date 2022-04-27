@@ -42,8 +42,5 @@ public class FeladatController {
         service.deleteFeladatok(id);
     }
 
-    @GetMapping("/edzesnapfeladatok/{id}")
-    public List<EdzesnapFeladat> getEdzesnapfeladatok(@PathVariable("id") int edzesnapFeladatId){
-        return service.getEdzesnapFeladatok(edzesnapFeladatId);
-    }
+
 }

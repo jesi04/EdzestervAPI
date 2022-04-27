@@ -9,7 +9,6 @@ public class Feladat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nev;
-    //@Column(name = "elegetettKcal")
     private int elegetett_kcal;
     private String leiras;
     private String megjegyzes;

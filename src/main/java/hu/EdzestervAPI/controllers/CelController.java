@@ -24,12 +24,7 @@ public class CelController {
     public Cel getCel(@PathVariable("id") int id){
         return service.getCel(id);
     }
-    /*
-    @PostMapping("/celok")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cel addCel(@RequestBody Cel cel){
-        return service.addCel(cel);
-    }*/
+
 
     @PostMapping("/celok")
     @ResponseStatus(HttpStatus.CREATED)

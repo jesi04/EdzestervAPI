@@ -42,13 +42,6 @@ public class BemutatoService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    /*public Bemutato addBemutato(Bemutato bemutato){
-        Optional<Bemutato> optionalBemutato = repository.findById(bemutato.getId());
-        if(!optionalBemutato.isPresent()){
-            return repository.save(bemutato);
-        }
-        throw new ResponseStatusException(HttpStatus.CONFLICT);
-    }*/
 
     public Bemutato addBemutato(NewBemutatoRequest newBemutatoRequest){
         Bemutato bemutato=newBemutatoRequest.toBemutato();

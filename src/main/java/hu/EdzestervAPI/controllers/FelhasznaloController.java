@@ -21,18 +21,10 @@ public class FelhasznaloController {
         return service.getFelhasznalok();
     }
 
-
-
     @GetMapping("/felhasznalok/{id}")
     public Felhasznalo getFelhasznalo(@PathVariable("id") int id){
         return service.getFelhasznalo(id);
     }
-
-    /*@PostMapping("/felhasznalok")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Felhasznalo addFelhasznalo(@RequestBody Felhasznalo felhasznalo){
-        return service.addFelhasznalo(felhasznalo);
-    }*/
 
     @PostMapping("/felhasznalok")
     @ResponseStatus(HttpStatus.CREATED)
@@ -51,15 +43,6 @@ public class FelhasznaloController {
         service.deleteFelhasznalo(id);
     }
 
-    @GetMapping("/edzestervek")
-    public List<Edzesterv> getEdzestervek(){
-        return service.getEdzestervek();
-    }
-
-    @GetMapping("/edzesnapok/{id}")
-    public List<Edzesnap> getEdzesnapok(@PathVariable("id") int id){
-        return service.getEdzesnapok(id);
-    }
 
 
 }

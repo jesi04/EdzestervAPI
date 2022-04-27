@@ -44,13 +44,6 @@ public class JavasoltEdzesService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    /*public JavasoltEdzes addJavasoltEdzes(JavasoltEdzes javasoltEdzes){
-        Optional<JavasoltEdzes> optionalJavasoltEdzes = repository.findById(javasoltEdzes.getId());
-        if(!optionalJavasoltEdzes.isPresent()){
-            return repository.save(javasoltEdzes);
-        }
-        throw new ResponseStatusException(HttpStatus.CONFLICT);
-    }*/
     public JavasoltEdzes addJavasoltEdzes(NewJavasoltEdzesRequest newJavasoltEdzesRequest){
         JavasoltEdzes javasoltEdzes = newJavasoltEdzesRequest.toJavasoltEdzes();
         System.out.println(newJavasoltEdzesRequest);

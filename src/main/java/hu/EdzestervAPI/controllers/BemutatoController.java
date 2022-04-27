@@ -25,11 +25,7 @@ public class BemutatoController {
         return service.getBemutato(id);
     }
 
-    /*@PostMapping("/bemutatok")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Bemutato addBemutato(@RequestBody Bemutato bemutato){
-        return service.addBemutato(bemutato);
-    }*/
+
 
     @PostMapping("/bemutatok")
     @ResponseStatus(HttpStatus.CREATED)

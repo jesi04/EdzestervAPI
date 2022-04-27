@@ -43,13 +43,7 @@ public class FelhasznaloService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    /*public Felhasznalo addFelhasznalo(Felhasznalo felhasznalo){
-        Optional<Felhasznalo> optionalFelhasznalo = repository.findById(felhasznalo.getId());
-        if(!optionalFelhasznalo.isPresent()){
-            return repository.save(felhasznalo);
-        }
-        throw new ResponseStatusException(HttpStatus.CONFLICT);
-    }*/
+
 
     public Felhasznalo addFelhasznalo(NewFelhasznaloRequest newFelhasznaloRequest){
         Felhasznalo felhasznalo=newFelhasznaloRequest.toFelhasznalo();
@@ -76,35 +70,6 @@ public class FelhasznaloService {
         }
     }
 
-    public List<Edzesterv> getEdzestervek() {
-        List<Edzesterv> edzestervek = new ArrayList<>();
-        List<Edzesterv> data = repository.getEdzestervek();
-        for (Edzesterv edzesterv : data) {
-            int id = edzesterv.getId();
-            String email = edzesterv.getEmail();
-            String nev = edzesterv.getNev();
-            Date szuldat = edzesterv.getSzuldat();
-            String felhasznaloMegjegyzes = edzesterv.getFelhasznaloMegjegyzes();
-            int celId = edzesterv.getCelId();
-            int felhasznaloid = edzesterv.getFelhasznaloid();
-            int elerendoSuly = edzesterv.getElerendo_suly();
-            Date kezdes = edzesterv.getKezdes();
-            Date vege = edzesterv.getVege();
-            String celMegjegyzes = edzesterv.getCelMegjegyzes();
-            edzestervek.add(new Edzesterv(id, email, nev, szuldat, felhasznaloMegjegyzes, celId, felhasznaloid, elerendoSuly, kezdes, vege, celMegjegyzes));
-        }
-        return edzestervek;
-    }
 
-    public List<Edzesnap> getEdzesnapok(int felhid) {
-        List<Edzesnap> eredmeny = new ArrayList<>();
-        List<Edzesnap> edzesnapok = repository.edzesnapok(felhid);
-        for (Edzesnap edzesnap : edzesnapok) {
-            int id = edzesnap.getId();
-            String izomcsoport = edzesnap.getIzomcsport();
-            eredmeny.add(new Edzesnap(id, izomcsoport));
-        }
-        return eredmeny;
-    }
 
 }
